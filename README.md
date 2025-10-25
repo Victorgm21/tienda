@@ -30,13 +30,9 @@ cd tienda
 ### 2. Crear y Activar Entorno Virtual
 
 Crear el entorno virtual:
-python -m venv venv
-
-Activar el entorno virtual en Windows:
 
 ```bash
-
-
+python -m venv venv
 ```
 
 Activar el entorno virtual en Windows:
