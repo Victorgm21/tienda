@@ -1,0 +1,284 @@
+/*
+====================================
+Estilos Generales y Base
+====================================
+*/
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f7f6; /* Fondo suave */
+    color: #333; /* Color de texto principal */
+    max-width: 800px; /* Ancho máximo para el contenido */
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08); /* Sombra sutil */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+h1 {
+    color: #007bff; /* Azul vibrante para el título */
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Azul más oscuro al pasar el ratón */
+}
+
+/*
+====================================
+Estilos de Formularios (Crear/Editar y Eliminar)
+====================================
+*/
+
+form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los campos de formulario generados con form.as_p */
+form p {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+
+/*
+====================================
+Botones y Enlaces de Acción
+====================================
+*/
+
+button[type="submit"],
+.btn-guardar { /* Clase opcional si usas <a> como botón de guardar */
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-align: center;
+    text-decoration: none; /* Para usarlo en <a> */
+}
+
+/* Botón/Enlace de Crear (Color Verde) */
+a[href*='producto_create'],
+button[type="submit"] { /* Aplicado al botón de Crear/Editar */
+    background-color: #28a745; /* Verde */
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+a[href*='producto_create']:hover,
+button[type="submit"]:hover {
+    background-color: #218838; /* Verde más oscuro */
+    color: white;
+}
+
+/* Botón de Confirmar Eliminación (Color Rojo) - HTML 1 */
+body > h1 + form button[type="submit"] {
+    background-color: #dc3545; /* Rojo */
+}
+
+body > h1 + form button[type="submit"]:hover {
+    background-color: #c82333; /* Rojo más oscuro */
+}
+
+/* Enlace 'Cancelar' o 'Volver' junto a un botón de formulario */
+body > form a {
+    margin-left: 15px;
+    color: #6c757d; /* Gris */
+    text-decoration: underline;
+}
+
+body > form a:hover {
+    color: #495057;
+}
+
+/*
+====================================
+Lista de Productos (HTML 4)
+====================================
+*/
+
+ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-left: 5px solid #007bff; /* Barra de color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+li:hover {
+    background-color: #e9ecef; /* Fondo más claro al pasar el ratón */
+}
+
+/* Estilo para el producto */
+li strong {
+    color: #333;
+    font-size: 1.1em;
+    margin-right: 10px;
+}
+
+/* Estilo para cuando no hay productos */
+li:last-child:not(:has(strong)) {
+    background-color: #fff3cd; /* Amarillo suave para aviso */
+    color: #856404;
+    border-left-color: #ffc107;
+    font-style: italic;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Enlaces de acción dentro del <li> */
+li a {
+    margin-left: 8px;
+    font-size: 0.9em;
+    padding: 3px 6px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+/* Estilo para el enlace 'Ver' */
+li a[href*='producto_detail'] {
+    color: #007bff;
+    background-color: #e7f5ff;
+}
+li a[href*='producto_detail']:hover {
+    color: white;
+    background-color: #007bff;
+}
+
+/* Estilo para el enlace 'Editar' */
+li a[href*='producto_update'] {
+    color: #ffc107;
+    background-color: #fff3cd;
+}
+li a[href*='producto_update']:hover {
+    color: #212529;
+    background-color: #ffc107;
+}
+
+/* Estilo para el enlace 'Eliminar' */
+li a[href*='producto_delete'] {
+    color: #dc3545;
+    background-color: #f8d7da;
+}
+li a[href*='producto_delete']:hover {
+    color: white;
+    background-color: #dc3545;
+}
+
+/*
+====================================
+Detalle de Producto (HTML 2)
+====================================
+*/
+
+.detalle-producto p {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 3px solid #007bff;
+    margin-bottom: 10px;
+}
+/* Como el HTML 2 no tiene una clase, usamos el padre directo */
+body > p {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 3px solid #007bff;
+    margin-bottom: 10px;
+}
+
+body > p strong {
+    color: #007bff;
+    width: 100px; /* Para alinear visualmente si deseas */
+    display: inline-block;
+}
+
+/* Enlaces de acción en la vista de detalle */
+body > a {
+    margin-right: 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* Enlace Editar en Detalle */
+a[href*='producto_update'] {
+    background-color: #ffc107;
+    color: #212529;
+}
+a[href*='producto_update']:hover {
+    background-color: #e0a800;
+}
+
+/* Enlace Eliminar en Detalle */
+a[href*='producto_delete'] {
+    background-color: #dc3545;
+    color: white;
+}
+a[href*='producto_delete']:hover {
+    background-color: #c82333;
+}
+
+/* Enlace Volver a la Lista en Detalle */
+a[href*='producto_list'] {
+    background-color: #6c757d;
+    color: white;
+}
+a[href*='producto_list']:hover {
+    background-color: #5a6268;
+}

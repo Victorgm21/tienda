@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Productos</h1>
+
+    <a href="{% url 'producto_create' %}">➕ Crear nuevo producto</a>
+    <hr>
+
+    <ul>
+        {% for producto in productos %}
+            <li>
+                <strong>{{ producto.nombre }}</strong> - ${{ producto.precio }}
+                (<a href="{% url 'producto_detail' producto.id %}">Ver</a> |
+                 <a href="{% url 'producto_update' producto.id %}">Editar</a> |
+                 <a href="{% url 'producto_delete' producto.id %}">Eliminar</a>)
+            </li>
+        {% empty %}
+            <li>No hay productos aún.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
